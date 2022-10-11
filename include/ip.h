@@ -30,16 +30,16 @@
 #endif
 
 struct iphdr {
-    uint8_t ihl : 4; /* TODO: Support Big Endian hosts */
+    uint8_t ihl : 4; /* TODO: Support Big Endian hosts */ // Internet Header Length 
     uint8_t version : 4;
-    uint8_t tos;
-    uint16_t len;
-    uint16_t id;
-    uint16_t frag_offset;
-    uint8_t ttl;
-    uint8_t proto;
+    uint8_t tos;    // The field communicates the quality of service intended for the IP datagram.
+    uint16_t len;   // ip datagram的长度，因为最长就是16bit的大小所以最大就是 65535 bytes，更大的就要被分段了 fragmentation to 适应 Maximum Transmission Unit(MTU）
+    uint16_t id;    // 序号，去reassemble fragmented IP datagrams,递增排序
+    uint16_t frag_offset;   // fragment 在datagram中的位置
+    uint8_t ttl;    // time to live
+    uint8_t proto;  // such as 16 (UDP) or 6 (TCP)
     uint16_t csum;
-    uint32_t saddr;
+    uint32_t saddr; // source and destination addresses of the datagram
     uint32_t daddr;
     uint8_t data[];
 } __attribute__((packed));

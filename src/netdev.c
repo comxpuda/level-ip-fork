@@ -66,6 +66,7 @@ static int netdev_receive(struct sk_buff *skb)
 
     eth_dbg("in", hdr);
 
+    // 网络设备接受包后分发
     switch (hdr->ethertype) {
         case ETH_P_ARP:
             arp_rcv(skb);
