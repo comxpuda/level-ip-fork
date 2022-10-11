@@ -31,10 +31,10 @@ uint8_t *skb_head(struct sk_buff *skb);
 
 struct eth_hdr 
 {
-    uint8_t  dmac[6];
-    uint8_t  smac[6];
-    uint16_t ethertype;
-    uint8_t  payload[];
+    uint8_t  dmac[6];   // 交互双方的MAC地址
+    uint8_t  smac[6];   // 交互双方的MAC地址
+    uint16_t ethertype; // 视内容而定 既可以表示payload长度也可以表示类型
+    uint8_t  payload[]; // payload内容
 } __attribute__((packed));
 
 static inline struct eth_hdr *eth_hdr(struct sk_buff *skb)

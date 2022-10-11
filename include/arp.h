@@ -57,11 +57,11 @@
 
 struct arp_hdr
 {
-    uint16_t hwtype;
-    uint16_t protype;
-    uint8_t hwsize;
-    uint8_t prosize;
-    uint16_t opcode;
+    uint16_t hwtype;    // link layer的类型
+    uint16_t protype;   // protocol type的类型
+    uint8_t hwsize;     // size of hardware and protocol fields
+    uint8_t prosize;    // size of hardware and protocol fields 不知道这俩字段有啥意义
+    uint16_t opcode;    // ARP message的类型 ARP request (1), ARP reply (2), RARP request (3) or RARP reply (4).
     unsigned char data[];
 } __attribute__((packed));
 

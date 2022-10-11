@@ -26,6 +26,7 @@ static int set_if_up(char *dev)
 /*
  * Taken from Kernel Documentation/networking/tuntap.txt
  */
+// 初始化一个 TAP device.
 static int tun_alloc(char *dev)
 {
     struct ifreq ifr;
